@@ -1,8 +1,5 @@
 import { SITE } from "@/lib/site";
-import HeroPhoto from "./HeroPhoto";
 
-// Pour remplacer la photo : enregistre ton image en /public/hero.jpg
-// (ratio portrait conseillé, ~1200 × 1800 ou plus, < 500 ko après compression).
 const HERO_IMG = "/hero.png";
 
 export default function Hero() {
@@ -10,10 +7,27 @@ export default function Hero() {
   const target = SITE.bookingUrl || wa;
 
   return (
-    <section id="top" className="relative overflow-hidden bg-sand-grain">
+    <section
+      id="top"
+      className="relative isolate overflow-hidden min-h-[88svh] md:min-h-[92svh] flex"
+    >
+      {/* Photo full-bleed en fond — pan/zoom lent */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-cover bg-center md:bg-right hero-bg-pan"
+        style={{ backgroundImage: `url('${HERO_IMG}')` }}
+      />
+
+      {/* Voile de lecture : plus marqué en haut sur mobile, à gauche sur desktop */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-sand-50/85 via-sand-50/45 to-sand-50/0 md:bg-gradient-to-r md:from-sand-50/75 md:via-sand-50/30 md:to-transparent"
+      />
+
+      {/* Ornement cercles en haut-droite (subtil) */}
       <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -right-24 w-[560px] h-[560px] text-rose-200/55"
+        aria-hidden
+        className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] text-rose-200/50 hidden md:block"
         viewBox="0 0 400 400"
         fill="none"
       >
@@ -21,12 +35,19 @@ export default function Hero() {
         <circle cx="200" cy="200" r="125" stroke="currentColor" strokeWidth="1" />
         <circle cx="200" cy="200" r="80" stroke="currentColor" strokeWidth="1" />
       </svg>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-sand-100/80 to-transparent" />
 
-      <div className="relative mx-auto max-w-6xl px-4 pt-14 pb-16 md:pt-24 md:pb-28 grid md:grid-cols-[1.1fr_1fr] gap-10 md:gap-14 items-center">
-        <div className="animate-fade-up order-2 md:order-1">
+      {/* Fade vers la section suivante en bas */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-rose-900/20 to-transparent"
+      />
+
+      {/* Contenu — vertical : texte en haut, USP en bas */}
+      <div className="relative z-10 mx-auto max-w-6xl w-full px-4 pt-20 pb-12 md:pt-28 md:pb-16 flex flex-col justify-between gap-10">
+        {/* Bloc texte en haut */}
+        <div className="animate-fade-up max-w-2xl">
           <span className="ornament">{SITE.city} · 31270</span>
-          <h1 className="h-display mt-5 text-[2.5rem] sm:text-5xl md:text-[4.2rem] text-rose-900">
+          <h1 className="h-display mt-5 text-[2.7rem] sm:text-6xl md:text-[5rem] leading-[0.95] text-rose-900">
             Des ongles soignés,
             <br />
             <em className="not-italic text-champagne-600">au plus près de chez vous.</em>
@@ -47,13 +68,16 @@ export default function Hero() {
             </a>
             <a
               href={`tel:${SITE.phoneE164}`}
-              className="rounded-full border border-rose-600/60 hover:border-rose-600 hover:bg-white/60 transition text-rose-900 px-7 py-3.5 font-medium"
+              className="rounded-full border border-rose-600/70 hover:border-rose-600 hover:bg-white/60 backdrop-blur transition text-rose-900 px-7 py-3.5 font-medium"
             >
               {SITE.phoneDisplay}
             </a>
           </div>
+        </div>
 
-          <ul className="mt-10 grid grid-cols-3 gap-3 max-w-md text-xs text-rose-900/80">
+        {/* Pied du hero — USP en ligne + badge avis */}
+        <div className="animate-fade-up flex flex-wrap items-end justify-between gap-5">
+          <ul className="grid grid-cols-3 gap-2.5 sm:gap-3 w-full sm:w-auto sm:flex sm:flex-wrap text-xs text-rose-900/80">
             {[
               { t: "Sans HEMA", s: "Sans TPO" },
               { t: "Hygiène", s: "Stricte" },
@@ -61,19 +85,14 @@ export default function Hero() {
             ].map((u) => (
               <li
                 key={u.t}
-                className="rounded-2xl border border-rose-200/70 bg-white/60 backdrop-blur px-3 py-3 text-center"
+                className="rounded-2xl border border-rose-200/70 bg-white/55 backdrop-blur px-3 py-2.5 sm:px-4 text-center sm:text-left"
               >
-                <p className="font-medium text-rose-900">{u.t}</p>
+                <p className="font-medium text-rose-900 leading-tight">{u.t}</p>
                 <p className="text-[0.7rem] text-rose-900/55 mt-0.5">{u.s}</p>
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Hero photo : single image, full bleed, format portrait, tilt au hover */}
-        <div className="order-1 md:order-2 relative animate-fade-in [perspective:1200px]">
-          <HeroPhoto src={HERO_IMG} />
-          <div className="absolute -bottom-3 -right-3 md:-bottom-5 md:-right-5 rounded-full bg-champagne-200 text-rose-900 text-sm px-5 py-2.5 shadow-soft font-medium">
+          <div className="rounded-full bg-champagne-200/95 backdrop-blur text-rose-900 text-sm px-5 py-2.5 shadow-soft font-medium ring-1 ring-white/40">
             ★ 4,9 / 5 — Avis Google
           </div>
         </div>
