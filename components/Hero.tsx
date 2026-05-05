@@ -9,21 +9,22 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden md:min-h-[92svh] md:flex"
+      className="relative isolate overflow-hidden min-h-[88svh] md:min-h-[92svh] flex"
     >
-      {/* Photo full-bleed en fond — visible UNIQUEMENT desktop */}
+      {/* Photo full-bleed en fond — pan/zoom lent */}
       <div
         aria-hidden
-        className="hidden md:block absolute inset-0 -z-10 bg-cover bg-right hero-bg-pan"
+        className="absolute inset-0 -z-10 bg-cover bg-center md:bg-right hero-bg-pan"
         style={{ backgroundImage: `url('${HERO_IMG}')` }}
       />
-      {/* Voile de lecture desktop */}
+
+      {/* Voile de lecture : marqué en haut sur mobile, à gauche sur desktop */}
       <div
         aria-hidden
-        className="hidden md:block absolute inset-0 -z-10 bg-gradient-to-r from-sand-50/75 via-sand-50/30 to-transparent"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-sand-50/85 via-sand-50/45 to-sand-50/0 md:bg-gradient-to-r md:from-sand-50/75 md:via-sand-50/30 md:to-transparent"
       />
 
-      {/* Ornement cercles en haut-droite */}
+      {/* Ornement cercles en haut-droite — desktop uniquement */}
       <svg
         aria-hidden
         className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] text-rose-200/50 hidden md:block"
@@ -38,14 +39,14 @@ export default function Hero() {
       {/* Fade vers la section suivante */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-rose-900/20 to-transparent hidden md:block"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-rose-900/20 to-transparent"
       />
 
-      <div className="relative z-10 mx-auto max-w-6xl w-full px-4 pt-10 pb-12 md:pt-28 md:pb-16 flex flex-col gap-8 md:justify-between md:gap-10">
+      <div className="relative z-10 mx-auto max-w-6xl w-full px-4 pt-20 pb-12 md:pt-28 md:pb-16 flex flex-col justify-between gap-10">
         {/* Bloc texte */}
-        <div className="animate-fade-up max-w-2xl">
+        <div className="animate-fade-up max-w-[18rem] sm:max-w-2xl">
           <span className="ornament">{SITE.city} · 31270</span>
-          <h1 className="h-display mt-4 md:mt-5 text-[2.1rem] sm:text-5xl md:text-[5rem] leading-[1.05] md:leading-[0.95] text-rose-900">
+          <h1 className="h-display mt-5 text-[2rem] sm:text-5xl md:text-[5rem] leading-[1.05] md:leading-[0.95] text-rose-900">
             Des ongles soignés,
             <br />
             <em className="not-italic text-champagne-600">au plus près de chez vous.</em>
@@ -73,24 +74,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Photo en card — UNIQUEMENT mobile */}
-        <div className="md:hidden relative animate-fade-in">
-          <div
-            className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-glow bg-rose-100"
-            style={{
-              backgroundImage: `url('${HERO_IMG}'), linear-gradient(135deg, #f3ece1 0%, #f5cdbf 100%)`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/30 rounded-3xl" />
-          </div>
-          <div className="absolute -bottom-3 -right-3 rounded-full bg-champagne-200 text-rose-900 text-xs px-4 py-2 shadow-soft font-medium ring-1 ring-white/40">
-            ★ 4,9 / 5 — Avis Google
-          </div>
-        </div>
-
-        {/* Pied du hero — USP en ligne */}
+        {/* Pied du hero — USP en ligne + badge avis */}
         <div className="animate-fade-up flex flex-wrap items-end justify-between gap-5">
           <ul className="grid grid-cols-3 gap-2.5 sm:gap-3 w-full sm:w-auto sm:flex sm:flex-wrap text-xs text-rose-900/80">
             {[
@@ -107,8 +91,7 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-          {/* Badge avis — desktop only (mobile a déjà le badge sur la card) */}
-          <div className="hidden md:block rounded-full bg-champagne-200/95 backdrop-blur text-rose-900 text-sm px-5 py-2.5 shadow-soft font-medium ring-1 ring-white/40">
+          <div className="rounded-full bg-champagne-200/95 backdrop-blur text-rose-900 text-sm px-5 py-2.5 shadow-soft font-medium ring-1 ring-white/40">
             ★ 4,9 / 5 — Avis Google
           </div>
         </div>
