@@ -7,17 +7,37 @@ const VALUES = [
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-sand-100 border-y border-rose-100">
-      <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-[2fr_3fr] gap-10 md:gap-14 items-center">
+    <section
+      id="about"
+      className="relative bg-gradient-to-b from-sand-50 via-sand-100 to-sand-50 border-y border-rose-100 overflow-hidden"
+    >
+      {/* Voiles décoratifs */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-champagne-200/35 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full bg-rose-200/40 blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-[2fr_3fr] gap-10 md:gap-14 items-center">
+        {/* Photo en cadre glass */}
         <div className="relative">
           <div
-            className="aspect-[4/5] rounded-3xl bg-cover bg-center shadow-soft"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=80')",
-            }}
-          />
-          <div className="absolute -bottom-5 -right-3 md:-right-5 rounded-2xl bg-white shadow-soft px-5 py-4 text-sm">
+            className="rounded-3xl bg-white/35 backdrop-blur-xl ring-1 ring-white/55 ring-inset p-2
+                       shadow-[0_15px_45px_-18px_rgba(90,47,35,0.25),inset_0_1px_0_rgba(255,255,255,0.7)]"
+          >
+            <div
+              className="aspect-[4/5] rounded-2xl bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=80')",
+              }}
+            />
+          </div>
+          {/* Badge années en glass */}
+          <div className="absolute -bottom-5 -right-3 md:-right-5 rounded-2xl bg-white/55 backdrop-blur-xl ring-1 ring-white/65 shadow-soft px-5 py-4 text-sm">
             <p className="h-display text-2xl text-rose-900">4 ans</p>
             <p className="text-xs text-rose-900/60 uppercase tracking-widest">
               d'expertise
@@ -25,7 +45,11 @@ export default function About() {
           </div>
         </div>
 
-        <div>
+        {/* Bloc texte en cadre glass */}
+        <div
+          className="rounded-3xl bg-white/45 backdrop-blur-xl ring-1 ring-white/55 ring-inset p-6 sm:p-8 md:p-10
+                     shadow-[0_15px_45px_-18px_rgba(90,47,35,0.18),inset_0_1px_0_rgba(255,255,255,0.7)]"
+        >
           <span className="ornament">À propos</span>
           <h2 className="h-display mt-4 text-3xl md:text-5xl text-rose-900">
             Une approche <em className="not-italic text-champagne-600">soignée</em> et personnalisée.
@@ -41,7 +65,7 @@ export default function About() {
             {VALUES.map((v) => (
               <li
                 key={v.t}
-                className="rounded-2xl border border-rose-200/70 bg-white/70 px-4 py-3"
+                className="rounded-2xl bg-white/55 backdrop-blur-md ring-1 ring-white/60 ring-inset px-4 py-3"
               >
                 <p className="font-medium text-rose-900">{v.t}</p>
                 <p className="text-xs text-rose-900/65 mt-1">{v.d}</p>

@@ -37,7 +37,7 @@ export const DEMO_PHOTOS = [
     alt: "Pose américaine Gel X mat",
   },
   {
-    src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80&sat=-30",
+    src: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=900&q=80",
     width: 900,
     height: 1125,
     alt: "French babyboomer rose poudré",

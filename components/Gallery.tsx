@@ -76,21 +76,6 @@ export default function Gallery({ photos }: { photos: GalleryPhoto[] }) {
                     aria-hidden
                     className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/30 to-transparent pointer-events-none"
                   />
-                  {/* Hover dark frosted overlay */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 bg-rose-900/35 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-                </span>
-
-                {/* Glass number badge */}
-                <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 inline-flex items-center justify-center rounded-full bg-white/35 backdrop-blur-md text-rose-900 text-[10px] font-semibold tracking-widest px-2.5 py-1 ring-1 ring-white/55 shadow-soft">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
-                {/* Glass caption (hover) */}
-                <span className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 rounded-xl bg-white/20 backdrop-blur-md ring-1 ring-white/40 px-3 py-2 text-rose-50 text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-500">
-                  {p.alt}
                 </span>
               </button>
             </li>

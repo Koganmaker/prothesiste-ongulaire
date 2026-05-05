@@ -1,7 +1,6 @@
 import { SITE } from "@/lib/site";
 
 export default function Contact() {
-  const wa = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(SITE.whatsappTemplate)}`;
   return (
     <section id="contact" className="relative bg-rose-900 text-rose-50">
       <svg
@@ -21,7 +20,7 @@ export default function Contact() {
           </h2>
           <p className="mt-4 text-rose-50/75 leading-relaxed max-w-prose">
             Sur rendez-vous uniquement. Je vous réponds sous 2 h en journée — par
-            téléphone, WhatsApp ou DM Instagram.
+            téléphone ou DM Instagram.
           </p>
 
           <div className="mt-8 space-y-3">
@@ -30,14 +29,6 @@ export default function Contact() {
               className="card-lift block rounded-2xl bg-champagne-200 text-rose-900 p-5 text-center font-medium"
             >
               Appeler {SITE.phoneDisplay}
-            </a>
-            <a
-              href={wa}
-              target="_blank"
-              rel="noopener"
-              className="card-lift block rounded-2xl border border-rose-50/30 hover:border-rose-50/60 text-rose-50 p-5 text-center font-medium"
-            >
-              Écrire sur WhatsApp
             </a>
             {SITE.bookingUrl && (
               <a

@@ -14,7 +14,7 @@ export default function Header() {
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm text-rose-900/80">
           <a href="#book" className="hover:text-rose-600 transition">Le book</a>
-          <a href="#services" className="hover:text-rose-600 transition">Prestations</a>
+          <a href="#services" className="hover:text-rose-600 transition">Tarifs</a>
           <a href="#process" className="hover:text-rose-600 transition">Déroulé</a>
           <a href="#about" className="hover:text-rose-600 transition">À propos</a>
           <a href="#contact" className="hover:text-rose-600 transition">Contact</a>
