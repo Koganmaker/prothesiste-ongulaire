@@ -45,14 +45,14 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-6xl w-full px-4 pt-20 pb-12 md:pt-28 md:pb-16 flex flex-col justify-between gap-10">
         {/* Bloc texte */}
         <div className="animate-fade-up max-w-[18rem] sm:max-w-2xl">
-          <span className="ornament">{SITE.city} · 31270</span>
+          <span className="ornament">Prothésiste ongulaire</span>
           <h1 className="h-display mt-5 text-[2rem] sm:text-5xl md:text-[5rem] leading-[1.05] md:leading-[0.95] text-rose-900">
             Des ongles soignés,
             <br />
             <em className="not-italic text-champagne-600">au plus près de chez vous.</em>
           </h1>
           <p className="mt-5 md:mt-6 text-base md:text-lg text-rose-900/75 max-w-prose leading-relaxed">
-            Pose gel, semi-permanent, nail art à Villeneuve-Tolosane.
+            Pose gel, semi-permanent, nail art.
             Produits sans HEMA et sans TPO, hygiène stricte, finitions sur-mesure.
           </p>
 

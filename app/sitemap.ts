@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://db-ongles.fr";
+const SITE_URL = "https://prothesiste-ongulaire.fr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

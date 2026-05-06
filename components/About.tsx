@@ -55,8 +55,8 @@ export default function About() {
             Une approche <em className="not-italic text-champagne-600">soignée</em> et personnalisée.
           </h2>
           <p className="mt-5 text-rose-900/80 leading-relaxed">
-            Bonjour, je suis <strong>Db</strong>, prothésiste ongulaire installée
-            à Villeneuve-Tolosane. Mon objectif : des poses durables, esthétiques,
+            Bonjour, je suis <strong>Db</strong>, prothésiste ongulaire.
+            Mon objectif : des poses durables, esthétiques,
             qui respectent l'ongle naturel — avec une hygiène irréprochable et
             des produits de dernière génération.
           </p>

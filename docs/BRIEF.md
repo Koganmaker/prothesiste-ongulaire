@@ -1,11 +1,11 @@
-# BRIEF — Db Ongles
+# BRIEF — Prothésiste ongulaire
 
-Site vitrine d'une prothésiste ongulaire à Villeneuve-Tolosane (31270). Stack 100 % gratuite, mobile-first, optimisé conversion locale et SEO.
+Site vitrine d'une prothésiste ongulaire. Stack 100 % gratuite, mobile-first, optimisé conversion locale et SEO.
 
 ## 1. Objectifs
 
 1. Décrocher le téléphone / le RDV. CTA principal mesurable : appels `tel:`, clics « Prendre RDV », clics WhatsApp.
-2. Apparaître en map pack Google sur les requêtes « prothésiste ongulaire Villeneuve-Tolosane », « pose gel 31270 », « semi-permanent Cugnaux ».
+2. Apparaître en map pack Google sur les requêtes « prothésiste ongulaire », « pose gel », « semi-permanent Cugnaux ».
 3. Donner à Db un outil simple pour publier ses réalisations sans toucher au code.
 
 ## 2. Stack technique (100 % gratuit)
@@ -13,7 +13,7 @@ Site vitrine d'une prothésiste ongulaire à Villeneuve-Tolosane (31270). Stack 
 - **Framework** : Next.js 15 (App Router) + TypeScript + Tailwind CSS.
 - **Hébergement** : Vercel Hobby (free) en région `cdg1` (Paris) pour latence FR.
 - **Repo** : GitHub (privé, free).
-- **Domaine** : `db-ongles.fr` (~10 €/an, seul coût hors « gratuit » — alternative gratuite : sous-domaine Vercel `db-ongles.vercel.app` mais déconseillé pour le SEO local).
+- **Domaine** : `prothesiste-ongulaire.fr` (~10 €/an, seul coût hors « gratuit » — alternative gratuite : sous-domaine Vercel `prothesiste-ongulaire.vercel.app` mais déconseillé pour le SEO local).
 - **CMS** : Decap CMS (open source, gratuit à vie, auth GitHub OAuth via Netlify Identity gratuit ou Vercel function maison). Stocke images dans `/public/photos` versionnées Git.
 - **Analytics** : Umami Cloud free (10k events/mois) ou auto-hébergé Vercel + Postgres free Neon — RGPD friendly, pas de bandeau cookie requis.
 - **Email contact** : Resend free (3 000 emails/mois) ou simple `mailto:`.
@@ -48,20 +48,20 @@ Vérification CI : GitHub Action `treosh/lighthouse-ci-action` sur chaque PR.
 - Une seule image en `priority` par route (le hero).
 - Toujours `width`/`height` ou import statique.
 - Toujours `sizes` déclaré.
-- `alt` descriptif local : `"Pose gel babyboomer rose pâle réalisée à Villeneuve-Tolosane"`.
-- Filigrane discret `@db.ongles` coin bas-droit sur chaque photo (anti-scrape concurrent).
+- `alt` descriptif local : `"Pose gel babyboomer rose pâle réalisée"`.
+- Filigrane discret `@prothesiste.ongulaire` coin bas-droit sur chaque photo (anti-scrape concurrent).
 
 ## 6. SEO local — checklist J+0
 
 1. **Google Business Profile** : catégorie principale **« Salon de manucure »** (PAS « Salon de beauté »). 10 photos minimum, NAP exact, horaires.
 2. **JSON-LD `BeautySalon`** dans `<head>` (cf. Annexe A) — coordonnées GPS exactes du cabinet (pas génériques).
 3. **NAP cohérent** sur GBP, site, Pages Jaunes, Planity, Booksy, Facebook, Instagram.
-4. **Title** : `Db Ongles — Prothésiste ongulaire à Villeneuve-Tolosane (31270)` (≤60 car).
-5. **Meta description** : `Pose gel, semi-permanent, nail art à Villeneuve-Tolosane et alentours (Cugnaux, Frouzins, Roques). Prenez RDV en ligne ou par téléphone.` (~155 car).
-6. **H1** : `Prothésiste ongulaire à Villeneuve-Tolosane`.
+4. **Title** : `Prothésiste ongulaire — Prothésiste ongulaire` (≤60 car).
+5. **Meta description** : `Pose gel, semi-permanent, nail art et alentours (Cugnaux, Frouzins, Roques). Prenez RDV en ligne ou par téléphone.` (~155 car).
+6. **H1** : `Prothésiste ongulaire`.
 7. **Citations** : Pages Jaunes, Treatwell, Planity, Booksy, StarOfService, Aladom.
 8. **Avis Google** : SMS post-RDV avec lien direct GBP. Cible 30+ avis / 6 mois, note ≥ 4.8.
-9. **Backlinks locaux** : Mairie Villeneuve-Tolosane (annuaire commerces), partenaires coiffeur/esthéticienne, écoles.
+9. **Backlinks locaux** : Mairie (annuaire commerces), partenaires coiffeur/esthéticienne, écoles.
 10. **Search Console** + **sitemap.xml** automatique Next.js dès J+0.
 
 ## 7. Mentions légales obligatoires (FR)
@@ -84,35 +84,35 @@ Bandeau cookies : non requis si Umami cookieless. Sinon CookieYes free.
 
 ```yaml
 backend:
-  name: github
-  repo: db-ongles/site
-  branch: main
+ name: github
+ repo: prothesiste-ongulaire/site
+ branch: main
 media_folder: public/photos
 public_folder: /photos
 collections:
-  - name: gallery
-    label: Le book
-    folder: content/gallery
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: Titre, name: title, widget: string }
-      - { label: Photo, name: image, widget: image }
-      - { label: Description (alt SEO), name: alt, widget: string }
-      - { label: Ordre, name: order, widget: number, default: 100 }
-      - { label: Visible, name: published, widget: boolean, default: true }
-  - name: services
-    label: Prestations
-    folder: content/services
-    create: true
-    fields:
-      - { label: Nom, name: name, widget: string }
-      - { label: Durée, name: duration, widget: string }
-      - { label: Prix, name: price, widget: string }
-      - { label: Description, name: description, widget: text }
+ - name: gallery
+ label: Le book
+ folder: content/gallery
+ create: true
+ slug: "{{slug}}"
+ fields:
+ - { label: Titre, name: title, widget: string }
+ - { label: Photo, name: image, widget: image }
+ - { label: Description (alt SEO), name: alt, widget: string }
+ - { label: Ordre, name: order, widget: number, default: 100 }
+ - { label: Visible, name: published, widget: boolean, default: true }
+ - name: services
+ label: Prestations
+ folder: content/services
+ create: true
+ fields:
+ - { label: Nom, name: name, widget: string }
+ - { label: Durée, name: duration, widget: string }
+ - { label: Prix, name: price, widget: string }
+ - { label: Description, name: description, widget: text }
 ```
 
-Db accède à `db-ongles.fr/admin`, login GitHub OAuth, drag-drop ses photos, clic Publier → rebuild Vercel auto.
+Db accède à `prothesiste-ongulaire.fr/admin`, login GitHub OAuth, drag-drop ses photos, clic Publier → rebuild Vercel auto.
 
 ## 9. Code de référence (galerie)
 
@@ -148,66 +148,66 @@ Voir Annexe B (`react-photo-album` + `yet-another-react-lightbox` chargé en `ne
 
 ```tsx
 const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BeautySalon",
-  "@id": "https://db-ongles.fr/#business",
-  "name": "Db Ongles",
-  "image": [
-    "https://db-ongles.fr/og/db-ongles-1x1.jpg",
-    "https://db-ongles.fr/og/db-ongles-4x3.jpg",
-    "https://db-ongles.fr/og/db-ongles-16x9.jpg"
-  ],
-  "url": "https://db-ongles.fr",
-  "telephone": "+33XXXXXXXXX",
-  "email": "contact@db-ongles.fr",
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Cash, Credit Card",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ADRESSE_EXACTE",
-    "addressLocality": "Villeneuve-Tolosane",
-    "postalCode": "31270",
-    "addressRegion": "Occitanie",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 0.0,
-    "longitude": 0.0
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Villeneuve-Tolosane" },
-    { "@type": "City", "name": "Cugnaux" },
-    { "@type": "City", "name": "Roques" },
-    { "@type": "City", "name": "Frouzins" },
-    { "@type": "City", "name": "Portet-sur-Garonne" },
-    { "@type": "City", "name": "Toulouse" }
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "09:00", "closes": "19:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Saturday"],
-      "opens": "09:00", "closes": "17:00"
-    }
-  ],
-  "sameAs": [
-    "https://www.instagram.com/db.ongles",
-    "https://www.facebook.com/dbongles",
-    "https://www.google.com/maps?cid=XXXXXXXXX"
-  ]
+ "@context": "https://schema.org",
+ "@type": "BeautySalon",
+ "@id": "https://prothesiste-ongulaire.fr/#business",
+ "name": "Prothésiste ongulaire",
+ "image": [
+ "https://prothesiste-ongulaire.fr/og/prothesiste-ongulaire-1x1.jpg",
+ "https://prothesiste-ongulaire.fr/og/prothesiste-ongulaire-4x3.jpg",
+ "https://prothesiste-ongulaire.fr/og/prothesiste-ongulaire-16x9.jpg"
+ ],
+ "url": "https://prothesiste-ongulaire.fr",
+ "telephone": "+33XXXXXXXXX",
+ "email": "contact@prothesiste-ongulaire.fr",
+ "priceRange": "€€",
+ "currenciesAccepted": "EUR",
+ "paymentAccepted": "Cash, Credit Card",
+ "address": {
+ "@type": "PostalAddress",
+ "streetAddress": "ADRESSE_EXACTE",
+ "addressLocality": "",
+ "postalCode": "",
+ "addressRegion": "Occitanie",
+ "addressCountry": "FR"
+ },
+ "geo": {
+ "@type": "GeoCoordinates",
+ "latitude": 0.0,
+ "longitude": 0.0
+ },
+ "areaServed": [
+ { "@type": "City", "name": "" },
+ { "@type": "City", "name": "Cugnaux" },
+ { "@type": "City", "name": "Roques" },
+ { "@type": "City", "name": "Frouzins" },
+ { "@type": "City", "name": "Portet-sur-Garonne" },
+ { "@type": "City", "name": "Toulouse" }
+ ],
+ "openingHoursSpecification": [
+ {
+ "@type": "OpeningHoursSpecification",
+ "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"],
+ "opens": "09:00", "closes": "19:00"
+ },
+ {
+ "@type": "OpeningHoursSpecification",
+ "dayOfWeek": ["Saturday"],
+ "opens": "09:00", "closes": "17:00"
+ }
+ ],
+ "sameAs": [
+ "https://www.instagram.com/prothesiste.ongulaire",
+ "https://www.facebook.com/prothesisteongulaire",
+ "https://www.google.com/maps?cid=XXXXXXXXX"
+ ]
 };
 
 <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-  }}
+ type="application/ld+json"
+ dangerouslySetInnerHTML={{
+ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+ }}
 />
 ```
 

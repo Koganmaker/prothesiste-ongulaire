@@ -36,7 +36,7 @@ export default function Header() {
             onClick={() => setOpen(false)}
             className="h-display text-2xl tracking-wide text-rose-900 leading-none"
           >
-            Db <span className="text-champagne-600">·</span> Ongles
+            Prothésiste ongulaire
           </a>
 
           <nav className="hidden md:flex items-center gap-7 text-sm text-rose-900/80">

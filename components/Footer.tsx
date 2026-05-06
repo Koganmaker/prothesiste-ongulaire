@@ -6,7 +6,12 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-3 gap-6 text-sm">
         <div>
           <p className="font-display text-xl mb-2">{SITE.name}</p>
-          <p>{SITE.city} ({SITE.postalCode})</p>
+          {SITE.city && (
+            <p>
+              {SITE.city}
+              {SITE.postalCode ? ` (${SITE.postalCode})` : ""}
+            </p>
+          )}
           <p>
             <a href={`tel:${SITE.phoneE164}`} className="underline">
               {SITE.phoneDisplay}

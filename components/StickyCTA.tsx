@@ -8,7 +8,7 @@ export default function StickyCTA() {
       <a
         href={`tel:${SITE.phoneE164}`}
         className="flex-1 text-center rounded-full border border-rose-600 text-rose-900 py-3 font-medium"
-        aria-label="Appeler Db Ongles"
+        aria-label="Appeler Prothésiste ongulaire"
       >
         Appeler
       </a>

@@ -1,21 +1,21 @@
 export const SITE = {
-  name: "Db Ongles",
-  city: "Villeneuve-Tolosane",
-  postalCode: "31270",
+  name: "Prothésiste ongulaire",
+  city: "",
+  postalCode: "",
   phoneDisplay: "06 XX XX XX XX",
   phoneE164: "+33XXXXXXXXX",
   whatsapp: "33XXXXXXXXX",
   whatsappTemplate: "Bonjour Db, j'aimerais prendre RDV pour",
-  instagram: "https://www.instagram.com/db.ongles",
-  facebook: "https://www.facebook.com/dbongles",
-  bookingUrl: "https://www.planity.com/", // démo — à remplacer par l'URL profil exact, ex: https://www.planity.com/db-ongles-31270-villeneuve-tolosane
-  email: "contact@db-ongles.fr",
+  instagram: "https://www.instagram.com/prothesiste.ongulaire",
+  facebook: "https://www.facebook.com/prothesisteongulaire",
+  bookingUrl: "https://www.planity.com/", // démo — à remplacer par l'URL profil exact
+  email: "contact@prothesiste-ongulaire.fr",
   hours: [
     { d: "Mardi — Vendredi", h: "9h — 19h" },
     { d: "Samedi", h: "9h — 17h" },
     { d: "Dimanche / Lundi", h: "Fermé" },
   ],
-  cities: ["Villeneuve-Tolosane", "Cugnaux", "Roques", "Frouzins", "Portet", "Toulouse"],
+  cities: ["Cugnaux", "Roques", "Frouzins", "Portet", "Toulouse"],
 };
 
 export const SERVICES = [

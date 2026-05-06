@@ -1,7 +1,7 @@
 backend:
-  name: github
-  repo: REMPLACER_PAR/db-ongles  # ex: db-ongles/site
-  branch: main
+ name: github
+ repo: REMPLACER_PAR/prothesiste-ongulaire # ex: prothesiste-ongulaire/site
+ branch: main
 
 # Authentification : utiliser Netlify Identity (gratuit) en proxy OAuth GitHub
 # OU installer une fonction Vercel maison. Doc : https://decapcms.org/docs/github-backend/
@@ -9,35 +9,35 @@ backend:
 media_folder: public/photos
 public_folder: /photos
 
-site_url: https://db-ongles.fr
-display_url: https://db-ongles.fr
+site_url: https://prothesiste-ongulaire.fr
+display_url: https://prothesiste-ongulaire.fr
 logo_url: /og/logo.png
 locale: fr
 
 collections:
-  - name: gallery
-    label: Le book
-    label_singular: Photo
-    folder: content/gallery
-    create: true
-    slug: "{{slug}}"
-    summary: "{{title}} ({{order}})"
-    fields:
-      - { label: "Titre interne", name: title, widget: string }
-      - { label: "Photo", name: image, widget: image }
-      - { label: "Description (alt SEO)", name: alt, widget: string, hint: "Ex: Pose gel babyboomer rose pâle réalisée à Villeneuve-Tolosane" }
-      - { label: "Ordre d'affichage", name: order, widget: number, default: 100, value_type: int }
-      - { label: "Visible", name: published, widget: boolean, default: true }
+ - name: gallery
+ label: Le book
+ label_singular: Photo
+ folder: content/gallery
+ create: true
+ slug: "{{slug}}"
+ summary: "{{title}} ({{order}})"
+ fields:
+ - { label: "Titre interne", name: title, widget: string }
+ - { label: "Photo", name: image, widget: image }
+ - { label: "Description (alt SEO)", name: alt, widget: string, hint: "Ex: Pose gel babyboomer rose pâle réalisée" }
+ - { label: "Ordre d'affichage", name: order, widget: number, default: 100, value_type: int }
+ - { label: "Visible", name: published, widget: boolean, default: true }
 
-  - name: services
-    label: Prestations
-    label_singular: Prestation
-    folder: content/services
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Nom", name: name, widget: string }
-      - { label: "Durée", name: duration, widget: string }
-      - { label: "Prix", name: price, widget: string }
-      - { label: "Description", name: description, widget: text }
-      - { label: "Ordre", name: order, widget: number, default: 100, value_type: int }
+ - name: services
+ label: Prestations
+ label_singular: Prestation
+ folder: content/services
+ create: true
+ slug: "{{slug}}"
+ fields:
+ - { label: "Nom", name: name, widget: string }
+ - { label: "Durée", name: duration, widget: string }
+ - { label: "Prix", name: price, widget: string }
+ - { label: "Description", name: description, widget: text }
+ - { label: "Ordre", name: order, widget: number, default: 100, value_type: int }
